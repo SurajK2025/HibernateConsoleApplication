@@ -3,7 +3,7 @@
   <groupId>com.hibernate</groupId>
   <artifactId>project1</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>project1</name>
+  <name>StudentManagementProj</name>
   <build>
 		<plugins>
 			<plugin>

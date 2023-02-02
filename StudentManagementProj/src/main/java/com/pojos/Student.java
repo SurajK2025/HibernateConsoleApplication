@@ -1,7 +1,9 @@
 package com.pojos;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
@@ -10,16 +12,20 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "students")
 public class Student extends BaseEntity {
-	
+
 	private String name;
-	
+
 	@Column(unique = true)
 	private String email;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "c_Id")
 	private Course course;
-	
+
+
+	@OneToOne(mappedBy = "customer", cascade = CascadeType.ALL, 
+			fetch = FetchType.LAZY, orphanRemoval = true)
+	private Address address;
 	
 	public Student() {}
 
@@ -39,6 +45,6 @@ public class Student extends BaseEntity {
 
 	@Override
 	public String toString() {
-		return "Student [id="+ super.getId() +"name=" + name + ", email=" + email + "]";
+		return "Student [id="+ super.getId() +" name=" + name + ", email=" + email + "]";
 	}
 }

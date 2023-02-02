@@ -6,7 +6,7 @@ import org.hibernate.cfg.Configuration;
 public class HibernateUtils {
 	//Static SessionFactory reference along with static initializer block ensures singleton pattern implementation.
 	public static SessionFactory factory;
-	
+
 	static {
 		//factory = new Configuration().configure().buildSessionFactory();
 		Configuration cfg = new Configuration();
@@ -15,7 +15,7 @@ public class HibernateUtils {
 		factory = cfg.buildSessionFactory();
 		System.out.println("Session factory configured.");
 	}
-	
+
 	public static SessionFactory getSession() {
 		return factory;
 	}
