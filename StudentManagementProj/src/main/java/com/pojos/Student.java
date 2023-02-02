@@ -22,10 +22,14 @@ public class Student extends BaseEntity {
 	@JoinColumn(name = "c_Id")
 	private Course course;
 
-
-	@OneToOne(mappedBy = "customer", cascade = CascadeType.ALL, 
+	@OneToOne(mappedBy = "student", cascade = CascadeType.ALL, 
 			fetch = FetchType.LAZY, orphanRemoval = true)
 	private Address address;
+	
+	public void addAddress(Address address) {
+		this.address = address;
+		address.setStudent(this);
+	}
 	
 	public Student() {}
 

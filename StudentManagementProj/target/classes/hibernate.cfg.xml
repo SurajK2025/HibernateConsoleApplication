@@ -19,5 +19,6 @@
 		<!-- mapping entry per entity -->
 		<mapping class="com.pojos.Course" />
 		<mapping class="com.pojos.Student" />
+		<mapping class="com.pojos.Address" />
 	</session-factory>
 </hibernate-configuration>

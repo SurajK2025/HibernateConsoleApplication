@@ -16,10 +16,13 @@ public class Address extends BaseEntity{
 	private double zipcode;
 	
 	@OneToOne
-	@JoinColumn(name = "customer_id")
+	@JoinColumn(name = "s_id")
 	private Student student;
 	
-	
+	public void setStudent(Student student) {
+		this.student = student;
+	}
+
 	public Address(String city, String state, double zipcode) {
 		super();
 		this.city = city;

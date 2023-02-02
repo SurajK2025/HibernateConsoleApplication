@@ -7,8 +7,10 @@ import java.util.Scanner;
 
 import org.hibernate.SessionFactory;
 
+import com.daos.AddressDao;
 import com.daos.CourseDao;
 import com.daos.StudentDao;
+import com.pojos.Address;
 import com.pojos.Course;
 import com.pojos.Student;
 
@@ -29,7 +31,8 @@ public class TestHibernate {
 						+ "\n13.Unpublish a course by Id "
 						+ "\n14.Unpublish a course by Title "
 						+ "\n15.Remove student from course"
-						+ "\n16.Display course details with students enrolled \n99.Close");
+						+ "\n16.Display course details with students enrolled"
+						+ "\n17.Add student address \n99.Close");
 				switch(choice = sc.nextInt()) {
 
 				case 1:
@@ -115,6 +118,10 @@ public class TestHibernate {
 					System.out.println(course);
 					course.getStudents().forEach(System.out::println);
 					break;
+				
+				case 17:
+					System.out.println("Enter studentId, city, state and pincode");
+					AddressDao.addAddress(sc.nextLong(), new Address(sc.next(), sc.next(), sc.nextDouble()));
 				}
 			}while(choice != 99);
 		}//At this point sf.close() is called and DB connection pool is cleaned up.
